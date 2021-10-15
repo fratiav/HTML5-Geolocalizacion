@@ -14,7 +14,7 @@ function start(){
 }
 
 function obtenerUbicacion(){
-    navigator.geolocation.getCurrentPosition(mostrarPosicion);
+    navigator.geolocation.getCurrentPosition(mostrarPosicion,gestionErrores);
 }
 
 function mostrarPosicion(posicion){  //posicion es el objeto Position que devuelve la funcion getCurrentPosition
@@ -26,4 +26,8 @@ function mostrarPosicion(posicion){  //posicion es el objeto Position que devuel
     var altitud = "Altitud: " + posicion.coords.altitude;
 
     ubicacion.innerHTML = latitud + "<br>" + longitud + "<br>"+ exactitud + "<br>" + altitud;
+}
+
+function gestionErrores(error){ //Error es el objeto que devuelve gestionErrores. Propiedades: code y message
+    alert("Ha habido un error '"+ error.code +"' - "+error.message);
 }
