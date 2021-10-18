@@ -14,7 +14,13 @@ function start(){
 }
 
 function obtenerUbicacion(){
-    navigator.geolocation.getCurrentPosition(mostrarPosicion,gestionErrores);
+
+    //Parametros de configuracion: enableHighAccuracy(posicion activa), timeout(tiempo para recalcular posicion), maximunAge(acceder a cache para ahorrar recursos) 
+    var parametrosConfig = {enableHighAccuracy:true, timeout:10000, maximunAge:6000}; //Medidas en milisegundos
+
+    //navigator.geolocation.getCurrentPosition(mostrarPosicion,gestionErrores,parametrosConfig);
+    navigator.geolocation.watchPosition(mostrarPosicion,gestionErrores,parametrosConfig); //Para mostrar la posicion en el tiempo
+
 }
 
 function mostrarPosicion(posicion){  //posicion es el objeto Position que devuelve la funcion getCurrentPosition

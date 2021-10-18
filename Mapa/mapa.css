@@ -1,0 +1,16 @@
+body,html{
+    padding: 0;
+    margin: 0;
+}
+
+h3{
+    color: seagreen;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.mapouter{
+    border: 5px solid seagreen;
+    margin: 0 auto;
+}
